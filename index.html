@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>ECharts</title>
+    <!-- 引入 echarts.js -->
+    <script src="https://cdn.jsdelivr.net/npm/echarts/dist/echarts.min.js"></script>
+</head>
+
+<body>
+    <!-- 为ECharts准备一个具备大小（宽高）的Dom -->
+    <div id="main" style="width: 100%;height:100vh;"></div>
+    <script type="text/javascript">
+        // 基于准备好的dom，初始化echarts实例
+        var myChart = echarts.init(document.getElementById('main'));
+
+        // 指定图表的配置项和数据
+        option = {
+            baseOption: {
+                title: {
+                    text: ''
+                },
+                tooltip: {
+                    trigger: 'axis'
+                },
+                legend: {
+                    data: ['公校', '课前测', '阶段测'],
+                    x: 'center',      //可设定图例在左、右、居中
+                    y: 'bottom',     //可设定图例在上、下、居中
+                    padding: [0, 0, 0, 0]
+                },
+
+                grid: {
+                    left: '3%',
+                    right: '4%',
+                    bottom: '3%',
+                    containLabel: true
+                },
+                toolbox: {
+                    feature: {
+                        saveAsImage: {}
+                    }
+                },
+                xAxis: {
+                    type: 'category',
+                    boundaryGap: false,
+                    data: ['2020-01', '2020-02', '2020-03', '2020-04', '2020-05', '2020-06', '2020-07']
+                },
+                yAxis: {
+                    type: 'value'
+                },
+                series: [
+                    {
+                        name: '公校',
+                        type: 'line',
+
+                        data: [87, 92, 93, 76, 90, 78, 79]
+                    },
+                    {
+                        name: '课前测',
+                        type: 'line',
+                        data: [87, 97, 56, 87, 83, 78, 90]
+                    },
+                    {
+                        name: '阶段测',
+                        type: 'line',
+                        data: [50, 72, 81, 94, 90, 90, 83]
+                    }
+                ]
+            },
+            media: [
+                {
+                    option: {
+                        legend: {
+                            right: 'center',
+                            bottom: 0,
+                            orient: 'horizontal'
+                        },
+                        series: [
+                            {
+                                radius: [20, '50%'],
+                                center: ['25%', '50%']
+                            },
+                            {
+                                radius: [30, '50%'],
+                                center: ['75%', '50%']
+                            }
+                        ]
+                    }
+                },
+                {
+                    query: {
+                        minAspectRatio: 1
+                    },
+                    option: {
+                        legend: {
+                            right: 'center',
+                            bottom: 0,
+                            orient: 'horizontal'
+                        },
+                        series: [
+                            {
+                                radius: [20, '50%'],
+                                center: ['25%', '50%']
+                            },
+                            {
+                                radius: [30, '50%'],
+                                center: ['75%', '50%']
+                            }
+                        ]
+                    }
+                },
+                {
+                    query: {
+                        maxAspectRatio: 1
+                    },
+                    option: {
+                        legend: {
+                            right: 'center',
+                            bottom: 0,
+                            orient: 'horizontal'
+                        },
+                        series: [
+                            {
+                                radius: [20, '50%'],
+                                center: ['50%', '30%']
+                            },
+                            {
+                                radius: [30, '50%'],
+                                center: ['50%', '70%']
+                            }
+                        ]
+                    }
+                },
+                {
+                    query: {
+                        maxWidth: 500
+                    },
+                    option: {
+                        legend: {
+                            right: 10,
+                            top: '15%',
+                            orient: 'vertical'
+                        },
+                        series: [
+                            {
+                                radius: [20, '50%'],
+                                center: ['50%', '30%']
+                            },
+                            {
+                                radius: [30, '50%'],
+                                center: ['50%', '75%']
+                            }
+                        ]
+                    }
+                }
+            ]
+        };
+        // 使用刚指定的配置项和数据显示图表。
+        myChart.setOption(option);
+    </script>
+</body>
+
+</html>
